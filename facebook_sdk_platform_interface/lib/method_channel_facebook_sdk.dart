@@ -14,7 +14,7 @@ import 'facebook_sdk_platform_interface.dart';
  * ---------------------------
  */
 
-const MethodChannel _channel = MethodChannel('com.nesminnn.facebook_sdk');
+const MethodChannel _channel = MethodChannel('com.nesmin.facebook_sdk');
 
 /// An implementation of [FacebookSdkPlatform] that uses method channels.
 class MethodChannelFacebookSdk extends FacebookSdkPlatform {
