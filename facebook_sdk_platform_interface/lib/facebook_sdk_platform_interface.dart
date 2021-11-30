@@ -1,17 +1,47 @@
-// You have generated a new plugin project without
-// specifying the `--platforms` flag. A plugin project supports no platforms is generated.
-// To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-// directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
-
 import 'dart:async';
 
-import 'package:flutter/services.dart';
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class FacebookSdkPlatformInterface {
-  static const MethodChannel _channel = MethodChannel('facebook_sdk_platform_interface');
+import 'method_channel_facebook_sdk.dart';
+/*
+ * ---------------------------
+ * File : facebook_sdk_platform_interface.dart
+ * ---------------------------
+ * Author : nesmin
+ * Date : Tue Nov 30 2021 11:59:11 AM
+ * Copyright (c) 2021 
+ * ---------------------------
+ */
 
-  static Future<String?> get platformVersion async {
-    final String? version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
+/// The interface that implementations of facebook_sdk must implement.
+///
+/// Platform implementations should extend this class rather than implement it as `facebook_sdk`
+/// does not consider newly added methods to be breaking changes. Extending this class
+/// (using `extends`) ensures that the subclass will get the default implementation, while
+/// platform implementations that `implements` this interface will be broken by newly added
+/// [FacebookSdkPlatform] methods.
+abstract class FacebookSdkPlatform extends PlatformInterface {
+  /// Constructs a FacebookSdkPlatform.
+  FacebookSdkPlatform() : super(token: _token);
+
+  static final Object _token = Object();
+
+  static FacebookSdkPlatform _instance = MethodChannelFacebookSdk();
+
+  /// The default instance of [FacebookSdkPlatform] to use.
+  ///
+  /// Defaults to [MethodChannelFacebookSdk].
+  static FacebookSdkPlatform get instance => _instance;
+
+  /// Platform-specific plugins should set this with their own platform-specific
+  /// class that extends [FacebookSdkPlatform] when they register themselves.
+  static set instance(FacebookSdkPlatform instance) {
+    PlatformInterface.verifyToken(instance, _token);
+    _instance = instance;
+  }
+
+  /// Initialize the facebook sdk tools. Completes to [true] if the Initialize was successful.
+  Future<bool> initialize() {
+    throw UnimplementedError('initialize() has not been implemented.');
   }
 }
