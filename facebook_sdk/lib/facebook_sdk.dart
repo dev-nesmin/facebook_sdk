@@ -1,17 +1,25 @@
-// You have generated a new plugin project without
-// specifying the `--platforms` flag. A plugin project supports no platforms is generated.
-// To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-// directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+/*
+ * ---------------------------
+ * File : facebook_sdk.dart
+ * ---------------------------
+ * Author : nesmin
+ * Date : Tue Nov 30 2021 2:24:22 PM
+ * Copyright (c) 2021 
+ * ---------------------------
+ */
 
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 
-class FacebookSdk {
-  static const MethodChannel _channel = MethodChannel('facebook_sdk');
-
-  static Future<String?> get platformVersion async {
-    final String? version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
+/// Checks whether the specified URL can be handled by some app installed on the
+/// device.
+///
+/// On some systems, such as recent versions of Android and iOS, this will
+/// always return false unless the application has been configuration to allow
+/// querying the system for launch support. See
+/// [the README](https://pub.dev/packages/url_launcher#configuration) for
+/// details.
+Future<bool> initialize() async {
+  //return await FacebookSdkPlatform.
+  return false;
 }
