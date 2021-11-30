@@ -23,17 +23,17 @@ dependencies:
     git:
       url: git@github.com:nesminnn/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_platform_interface
+      path: facebook_sdk_platform_interface
   facebook_sdk_android:
     git:
       url: git@github.com:nesminnn/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_android
+      path: facebook_sdk_android
   facebook_sdk_ios:
     git:
       url: git@github.com:nesminnn/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_ios
+      path: facebook_sdk_ios
 
 dev_dependencies:
   flutter_test:

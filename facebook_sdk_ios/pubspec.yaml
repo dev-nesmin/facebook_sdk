@@ -3,7 +3,7 @@ description: iOS implementation of the facebook_sdk plugin.
 repository: https://github.com/nesminnn/facebook_sdk/tree/stable/facebook_sdk_ios
 version: 0.0.1
 
-publish_to: none
+publish_to: "none"
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
@@ -23,7 +23,7 @@ dependencies:
     git:
       url: git@github.com:nesminnn/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_platform_interface
+      path: facebook_sdk_platform_interface
 
 dev_dependencies:
   flutter_test:
