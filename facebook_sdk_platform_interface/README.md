@@ -1,18 +1,27 @@
 # facebook_sdk_platform_interface
 
-A new flutter plugin project.
+A common platform interface for the [`facebook_sdk`][1] plugin.
 
-## Getting Started
+This interface allows platform-specific implementations of the `facebook_sdk`
+plugin, as well as the plugin itself, to ensure they are supporting the
+same interface.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+# Usage
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To implement a new platform-specific implementation of `facebook_sdk`, extend
+[`FacebookSdkPlatform`][2] with an implementation that performs the
+platform-specific behavior, and when you register your plugin, set the default
+`FacebookSdkPlatform` by calling
+`FacebookSdkPlatform.instance = MyPlatformFacebookSdk()`.
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+# Note on breaking changes
+
+Strongly prefer non-breaking changes (such as adding a method to the interface)
+over breaking changes for this package.
+
+See https://flutter.dev/go/platform-interface-breaking-changes for a discussion
+on why a less-clean interface is preferable to a breaking change.
+
+[1]: ../facebook_sdk
+[2]: lib/facebook_sdk_platform_interface.dart
+
