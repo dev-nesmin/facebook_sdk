@@ -1,15 +1,12 @@
 # facebook_sdk_android
 
-A new flutter plugin project.
 
-## Getting Started
+The Android implementation of [`facebook_sdk`][1].
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Usage
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This package is [endorsed][2], which means you can simply use `facebook_sdk`
+normally. This package will be automatically included in your app when you do.
 
+[1]: ../url_launcher
+[2]: https://flutter.dev/docs/development/packages-and-plugins/developing-packages#endorsed-federated-plugin

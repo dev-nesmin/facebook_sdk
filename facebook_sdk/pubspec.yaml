@@ -2,7 +2,7 @@ name: facebook_sdk
 description: Flutter plugin for implementing facebook sdk tools
 version: 0.0.1
 
-publish_to: none
+publish_to: 'none'
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
@@ -21,19 +21,19 @@ dependencies:
     sdk: flutter
   facebook_sdk_platform_interface:
     git:
-      url: git@github.com:nesminnn/facebook_sdk.git
+      url: git@github.com:dev-nesmin/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_platform_interface
+      path: facebook_sdk_platform_interface
   facebook_sdk_android:
     git:
-      url: git@github.com:nesminnn/facebook_sdk.git
+      url: git@github.com:dev-nesmin/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_android
+      path: facebook_sdk_android
   facebook_sdk_ios:
     git:
-      url: git@github.com:nesminnn/facebook_sdk.git
+      url: git@github.com:dev-nesmin/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_ios
+      path: facebook_sdk_ios
 
 dev_dependencies:
   flutter_test:

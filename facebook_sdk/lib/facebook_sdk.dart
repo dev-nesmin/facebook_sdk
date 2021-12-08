@@ -10,6 +10,8 @@
 
 import 'dart:async';
 
+import 'package:facebook_sdk_platform_interface/facebook_sdk_platform_interface.dart';
+
 
 /// Checks whether the specified URL can be handled by some app installed on the
 /// device.
@@ -20,6 +22,5 @@ import 'dart:async';
 /// [the README](https://pub.dev/packages/url_launcher#configuration) for
 /// details.
 Future<bool> initialize() async {
-  //return await FacebookSdkPlatform.
-  return false;
+  return await FacebookSdkPlatform.instance.initialize(); 
 }

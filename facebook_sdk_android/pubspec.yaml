@@ -3,7 +3,7 @@ description: Android implementation of the facebook_sdk plugin.
 repository: https://github.com/nesminnn/facebook_sdk/tree/stable/facebook_sdk_android
 version: 0.0.1
 
-publish_to: "none"
+publish_to: 'none'
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
@@ -15,16 +15,16 @@ flutter:
     platforms:
       android:
         package: com.nesmin.facebook_sdk_android
-        pluginClass: FacebookSdkAndroidPlugin
+        pluginClass: FacebookSdkPlugin
 
 dependencies:
   flutter:
     sdk: flutter
   facebook_sdk_platform_interface:
     git:
-      url: git@github.com:nesminnn/facebook_sdk.git
+      url: git@github.com:dev-nesmin/facebook_sdk.git
       ref: stable
-      path: facebook_sdk/facebook_sdk_platform_interface
+      path: facebook_sdk_platform_interface
 
 dev_dependencies:
   flutter_test:

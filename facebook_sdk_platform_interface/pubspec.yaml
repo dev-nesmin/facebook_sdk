@@ -2,6 +2,7 @@ name: facebook_sdk_platform_interface
 description: A common platform interface for the facebook_sdk plugin.
 version: 0.0.1
 
+publish_to: "none"
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
