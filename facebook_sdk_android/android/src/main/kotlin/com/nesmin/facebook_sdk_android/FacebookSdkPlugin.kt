@@ -10,15 +10,17 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** FacebookSdkAndroidPlugin */
-class FacebookSdkAndroidPlugin: FlutterPlugin, ActivityAware {
-  private val TAG = "FacebookSdkAndroidPlugin"
-  private val methodCallHandler: MethodCallHandlerImpl? = null
-  private val facebookSdk: FacebookSdk? = null
+/** FacebookSdkPlugin */
+class FacebookSdkPlugin: FlutterPlugin, ActivityAware {
+  private val TAG = "FacebookSdkPlugin"
+  private var methodCallHandler: MethodCallHandlerImpl? = null
+  private var facebookSdk: FacebookSdk? = null
 
 
   override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    TODO("Not yet implemented")
+    facebookSdk = FacebookSdk(binding.applicationContext)
+    methodCallHandler = MethodCallHandlerImpl(facebookSdk)
+    methodCallHandler.startListening(binding.binaryMessenger)
   }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {

@@ -14,14 +14,14 @@ flutter:
     implements: facebook_sdk
     platforms:
       ios:
-        pluginClass: FacebookSdkIosPlugin
+        pluginClass: FacebookSdkPlugin
 
 dependencies:
   flutter:
     sdk: flutter
   facebook_sdk_platform_interface:
     git:
-      url: git@github.com:nesminnn/facebook_sdk.git
+      url: git@github.com:dev-nesmin/facebook_sdk.git
       ref: stable
       path: facebook_sdk_platform_interface
 
