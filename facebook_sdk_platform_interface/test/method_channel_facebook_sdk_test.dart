@@ -1,5 +1,3 @@
-
-
 /*
  * ---------------------------
  * File : method_channel_facebook_sdk_test.dart
@@ -14,15 +12,11 @@ import 'package:facebook_sdk_platform_interface/method_channel_facebook_sdk.dart
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
-
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-
   group('$MethodChannelFacebookSdk', () {
-    const MethodChannel channel =
-        MethodChannel('com.nesmin.facebook_sdk');
+    const MethodChannel channel = MethodChannel('com.nesmin.facebook_sdk');
     final List<MethodCall> log = <MethodCall>[];
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
       log.add(methodCall);
@@ -39,23 +33,23 @@ void main() {
     });
 
     test('initialize', () async {
-      await facebookSdk.initialize();
+      await facebookSdk.initialize(
+          applicationId: "123456", enableAutoLogAppEvents: false);
       expect(
         log,
         <Matcher>[
-          isMethodCall('initialize', arguments: null)
+          isMethodCall('initialize', arguments: {
+            "applicationId": "123456",
+            "enableAutoLogAppEvents": false
+          })
         ],
       );
     });
 
     test('initialize should return false if platform returns null', () async {
-      final initialize = await facebookSdk.initialize();
+      final initialize = await facebookSdk.initialize(applicationId: "123456",enableAutoLogAppEvents: false);
 
       expect(initialize, false);
     });
-
-   
-
   });
 }
-
