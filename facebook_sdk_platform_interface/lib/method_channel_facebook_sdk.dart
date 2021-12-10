@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/services.dart';
 
 import 'facebook_sdk_platform_interface.dart';
@@ -19,11 +17,16 @@ const MethodChannel _channel = MethodChannel('com.nesmin.facebook_sdk');
 /// An implementation of [FacebookSdkPlatform] that uses method channels.
 class MethodChannelFacebookSdk extends FacebookSdkPlatform {
   @override
-  Future<bool> initialize() {
-    return _channel
-        .invokeMethod<bool>(
-          'initialize',
-        )
-        .then((value) => value ?? false);
+  Future<bool> initialize({
+    required String applicationId,
+    bool enableAutoLogAppEvents = true,
+  }) async {
+    return await _channel.invokeMethod<bool>(
+      'initialize',
+      <String, Object>{
+        'applicationId': applicationId,
+        'enableAutoLogAppEvents': enableAutoLogAppEvents,
+      },
+    ).then((value) => value ?? false);
   }
 }
