@@ -41,7 +41,12 @@ abstract class FacebookSdkPlatform extends PlatformInterface {
   }
 
   /// Initialize the facebook sdk tools. Completes to [true] if the Initialize was successful.
-  Future<bool> initialize() {
+  Future<bool> initialize(
+    {
+      required String applicationId,
+      bool enableAutoLogAppEvents = true
+    }  
+  ) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 }

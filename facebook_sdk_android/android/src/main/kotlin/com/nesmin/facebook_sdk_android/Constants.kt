@@ -1,4 +1,6 @@
 package com.nesmin.facebook_sdk_android
 
-class Constants {
+object Constants {
+    const val channel: String = "com.nesmin.facebook_sdk"
+    const val initializeMethod: String = "initialize"
 }

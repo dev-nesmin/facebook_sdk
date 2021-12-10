@@ -1,47 +1,60 @@
 package com.nesmin.facebook_sdk_android
 
-import androidx.annotation.NonNull
-
+import io.flutter.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
 /** FacebookSdkPlugin */
-class FacebookSdkPlugin: FlutterPlugin, ActivityAware {
-  private val TAG = "FacebookSdkPlugin"
-  private var methodCallHandler: MethodCallHandlerImpl? = null
-  private var facebookSdk: FacebookSdk? = null
+private const val TAG = "FacebookSdkPlugin"
+
+class FacebookSdkPlugin : FlutterPlugin, ActivityAware {
+
+    private var methodCallHandler: MethodCallHandlerImpl? = null
+    private var facebookSdk: FacebookSdk? = null
 
 
-  override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    facebookSdk = FacebookSdk(binding.applicationContext)
-    methodCallHandler = MethodCallHandlerImpl(facebookSdk)
-    methodCallHandler.startListening(binding.binaryMessenger)
-  }
+    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        facebookSdk = FacebookSdk(binding.applicationContext)
+        methodCallHandler = MethodCallHandlerImpl(facebookSdk!!)
+        methodCallHandler?.startListening(binding.binaryMessenger)
+    }
 
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    TODO("Not yet implemented")
-  }
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        if (methodCallHandler == null) {
+            Log.wtf(TAG, "Already detached from the engine.")
+            return
+        }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    TODO("Not yet implemented")
-  }
+        methodCallHandler?.stopListening()
+        methodCallHandler = null
+        facebookSdk = null
+    }
 
-  override fun onDetachedFromActivityForConfigChanges() {
-    TODO("Not yet implemented")
-  }
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        if (methodCallHandler == null) {
+            Log.wtf(TAG, "facebookSdk was never set.")
+            return
+        }
+        facebookSdk?.setActivity(binding.activity)
+    }
 
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    TODO("Not yet implemented")
-  }
+    override fun onDetachedFromActivityForConfigChanges() {
+        if (methodCallHandler == null) {
+            Log.wtf(TAG, "facebookSdk was never set.")
+            return
+        }
 
-  override fun onDetachedFromActivity() {
-    TODO("Not yet implemented")
-  }
+        facebookSdk?.setActivity(null)
+    }
+
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        onAttachedToActivity(binding);
+    }
+
+    override fun onDetachedFromActivity() {
+        onDetachedFromActivity();
+    }
 
 
 }
