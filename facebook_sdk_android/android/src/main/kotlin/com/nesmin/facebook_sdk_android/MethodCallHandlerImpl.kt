@@ -4,9 +4,6 @@ import io.flutter.Log
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import android.os.Bundle
-
-
 
 
 /** Forwards all incoming MethodChannel calls to the given 'FacebookSdk'. */
@@ -20,7 +17,7 @@ class MethodCallHandlerImpl(
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
-            Constants.initializeMethod -> initialize(call,result)
+            Constants.initializeMethod -> initialize(call, result)
             else -> result.notImplemented()
         }
     }
@@ -58,13 +55,13 @@ class MethodCallHandlerImpl(
 
 
     private fun initialize(call: MethodCall, result: MethodChannel.Result) {
-        val applicationId: String = call.argument("applicationId") ?: ""
-        val enableAutoLogAppEvents: Boolean = call.argument("enableAutoLogAppEvents") ?: false
+        val enableAutoLogAppEvents: Boolean = call.argument("enableAutoLogAppEvents") ?: true
 
-        result.success(facebookSdk.initialize(
-            applicationId = applicationId,
-            enableAutoLogAppEvents
-        ))
+        result.success(
+            facebookSdk.initialize(
+                enableAutoLogAppEvents
+            )
+        )
     }
 
 }

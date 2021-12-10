@@ -22,13 +22,13 @@ class FacebookSdk(
      * @param enableAutoLogAppEvents when true enables Facebook Automatically Logged App Events
      */
     fun initialize(
-        applicationId: String,
         enableAutoLogAppEvents: Boolean = true,
     ) {
-        FB.setApplicationId(applicationId)
+
         FB.setAutoLogAppEventsEnabled(enableAutoLogAppEvents)
         FB.setAutoInitEnabled(true)
         FB.fullyInitialize()
+
     }
 
 

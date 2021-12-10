@@ -34,12 +34,11 @@ void main() {
 
     test('initialize', () async {
       await facebookSdk.initialize(
-          applicationId: "123456", enableAutoLogAppEvents: false);
+          enableAutoLogAppEvents: false);
       expect(
         log,
         <Matcher>[
           isMethodCall('initialize', arguments: {
-            "applicationId": "123456",
             "enableAutoLogAppEvents": false
           })
         ],
@@ -47,7 +46,7 @@ void main() {
     });
 
     test('initialize should return false if platform returns null', () async {
-      final initialize = await facebookSdk.initialize(applicationId: "123456",enableAutoLogAppEvents: false);
+      final initialize = await facebookSdk.initialize(enableAutoLogAppEvents: false);
 
       expect(initialize, false);
     });

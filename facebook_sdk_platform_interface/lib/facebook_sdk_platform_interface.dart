@@ -43,7 +43,6 @@ abstract class FacebookSdkPlatform extends PlatformInterface {
   /// Initialize the facebook sdk tools. Completes to [true] if the Initialize was successful.
   Future<bool> initialize(
     {
-      required String applicationId,
       bool enableAutoLogAppEvents = true
     }  
   ) {
