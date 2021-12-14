@@ -1,4 +1,4 @@
 ## 1.0.0
 
-* Initialized implementation of facebook sdk for android
+* Initialized Facebook Sdk Stable Release for android
 
