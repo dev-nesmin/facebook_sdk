@@ -2,7 +2,9 @@ package com.nesmin.facebook_sdk_android
 
 import android.app.Activity
 import android.content.Context
+import io.flutter.Log
 import com.facebook.FacebookSdk as FB
+
 /**  */
 private const val TAG = "FacebookSdk"
 
@@ -22,13 +24,19 @@ class FacebookSdk(
      * @param enableAutoLogAppEvents when true enables Facebook Automatically Logged App Events
      */
     fun initialize(
-        applicationId: String,
         enableAutoLogAppEvents: Boolean = true,
-    ) {
-        FB.setApplicationId(applicationId)
-        FB.setAutoLogAppEventsEnabled(enableAutoLogAppEvents)
-        FB.setAutoInitEnabled(true)
-        FB.fullyInitialize()
+    ): Boolean {
+        return try {
+            FB.setAutoInitEnabled(true)
+            FB.fullyInitialize()
+            FB.setAutoLogAppEventsEnabled(enableAutoLogAppEvents)
+            true;
+        } catch (e: Exception) {
+            Log.wtf(TAG, "Exception : $e")
+            false;
+        }
+
+
     }
 
 
