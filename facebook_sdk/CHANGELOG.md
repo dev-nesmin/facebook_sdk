@@ -1,3 +1,3 @@
 ## 1.0.0
 
-* Initialized plugin structure.
+* Initialized Facebook Sdk Stable Release.
