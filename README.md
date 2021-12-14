@@ -1,7 +1,8 @@
 # facebook_sdk
 Facebook Sdk Plugin for Flutter
 
-This was created using the latest facebook SDK to include support for iOS 14. The plugin currently supports only app events  for iOS and Android. 
+This was created using the latest facebook SDK to include support for iOS 14. 
+The plugin currently supports only **auto** app events  for iOS and Android. 
 
 ## Prerequisites
 
@@ -57,3 +58,5 @@ Get your app id (referred to as [APP_ID] below)
 ```
 
 * Don't forget to replace [APP_ID] with your Application ID
+
+
