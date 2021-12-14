@@ -12,15 +12,15 @@ import 'dart:async';
 
 import 'package:facebook_sdk_platform_interface/facebook_sdk_platform_interface.dart';
 
-class FacebookSdk {
-  /// The platform interface that drives this plugin
-  static FacebookSdkPlatform get platform => FacebookSdkPlatform.instance;
 
-  ///simple checking if facebook is entegrated successfully
-  Future<bool> initialize({
-    bool enableAutoLogAppEvents = true,
-  }) async {
-    return await platform
-        .initialize(enableAutoLogAppEvents: enableAutoLogAppEvents);
-  }
+/// Checks whether the specified URL can be handled by some app installed on the
+/// device.
+///
+/// On some systems, such as recent versions of Android and iOS, this will
+/// always return false unless the application has been configuration to allow
+/// querying the system for launch support. See
+/// [the README](https://pub.dev/packages/url_launcher#configuration) for
+/// details.
+Future<bool> initialize() async {
+  return await FacebookSdkPlatform.instance.initialize(); 
 }
