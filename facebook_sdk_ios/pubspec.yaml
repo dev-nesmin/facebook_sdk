@@ -23,7 +23,7 @@ dependencies:
   facebook_sdk_platform_interface:
     git:
       url: git@github.com:dev-nesmin/facebook_sdk.git
-      ref: stable
+      ref: v1.0.0
       path: facebook_sdk_platform_interface
 
 dev_dependencies:
