@@ -16,10 +16,9 @@ const MethodChannel _channel = MethodChannel('com.nesmin.facebook_sdk');
 
 /// An implementation of [FacebookSdkPlatform] that uses method channels.
 class MethodChannelFacebookSdk extends FacebookSdkPlatform {
-  
   @override
   Future<bool> initialize({
-    required bool enableAutoLogAppEvents,
+    bool enableAutoLogAppEvents = true,
   }) async {
     return await _channel.invokeMethod<bool>(
       'initialize',

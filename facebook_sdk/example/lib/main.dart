@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:facebook_sdk/facebook_sdk.dart';
+import 'package:facebook_sdk_platform_interface/facebook_sdk_platform_interface.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,8 +25,8 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initFB() async {
-    final FacebookSdk _facebookSdk = FacebookSdk();
-    bool state = await _facebookSdk.initialize();
+    final FacebookSdkPlatform facebookSdk = FacebookSdkPlatform.instance;
+    bool state = await facebookSdk.initialize();
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling

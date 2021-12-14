@@ -1,4 +1,3 @@
-## 1.0.0
+## 0.0.1
 
-* Initialized Facebook Sdk Stable Release for android
-
+* TODO: Describe initial release.
