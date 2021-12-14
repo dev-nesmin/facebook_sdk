@@ -5,4 +5,9 @@
 //  Created by Nesrullah Ekinci on 13.12.2021.
 //
 
-import Foundation
+
+struct Constants {
+    static let channel: String = "com.nesmin.facebook_sdk"
+    static let initializeMethod: String = "initialize"
+    static let keyEnableAutoLogAppEvents: String = "enableAutoLogAppEvents"
+}

@@ -1,6 +1,7 @@
 name: facebook_sdk_ios
 description: iOS implementation of the facebook_sdk plugin.
 repository: https://github.com/nesminnn/facebook_sdk/tree/stable/facebook_sdk_ios
+
 version: 0.0.1
 
 publish_to: "none"
