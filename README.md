@@ -15,22 +15,20 @@ Get your app id (referred to as [APP_ID] below)
 * If your code does not have CFBundleURLTypes, add the following just before the final </dict> element:
 ```
  <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb[APP_ID]</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>[APP_ID]</string>
-    <key>FacebookDisplayName</key>
-    <string>[DISPLAY_NAME]</string>
-    <key>FacebookAutoLogAppEventsEnabled</key>
-    <true/>
-    <key>FacebookAdvertiserIDCollectionEnabled</key>
-    <true/>
+ <array>
+   <dict>
+   <key>CFBundleURLSchemes</key>
+   <array>
+     <string>fb[APP_ID]</string>
+   </array>
+   </dict>
+ </array>
+ <key>FacebookAppID</key>
+ <string>[APP_ID]</string>
+ <key>FacebookClientToken</key>
+ <string>CLIENT-TOKEN</string>
+ <key>FacebookDisplayName</key>
+ <string>APP-NAME</string>
 ```
 
 # For Android 
