@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initFB() async {
     final FacebookSdkPlatform facebookSdk = FacebookSdkPlatform.instance;
-    bool state = await facebookSdk.initialize();
+    bool state = await facebookSdk.initialize(enableAutoLogAppEvents: true);
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
