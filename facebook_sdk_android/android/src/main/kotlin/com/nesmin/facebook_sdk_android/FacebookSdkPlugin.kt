@@ -38,8 +38,7 @@ class FacebookSdkPlugin : FlutterPlugin, ActivityAware {
         }
         facebookSdk?.setActivity(binding.activity)
     }
-
-    override fun onDetachedFromActivityForConfigChanges() {
+     override fun onDetachedFromActivity() {
         if (methodCallHandler == null) {
             Log.wtf(TAG, "facebookSdk was never set.")
             return
@@ -48,13 +47,15 @@ class FacebookSdkPlugin : FlutterPlugin, ActivityAware {
         facebookSdk?.setActivity(null)
     }
 
+    override fun onDetachedFromActivityForConfigChanges() {
+     onDetachedFromActivity();
+    }
+
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
         onAttachedToActivity(binding);
     }
 
-    override fun onDetachedFromActivity() {
-        onDetachedFromActivity();
-    }
+   
 
 
 }

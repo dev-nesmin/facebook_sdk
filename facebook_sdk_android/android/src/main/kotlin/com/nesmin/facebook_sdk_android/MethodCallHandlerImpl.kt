@@ -55,7 +55,7 @@ class MethodCallHandlerImpl(
 
 
     private fun initialize(call: MethodCall, result: MethodChannel.Result) {
-        val enableAutoLogAppEvents: Boolean = call.argument("enableAutoLogAppEvents") ?: true
+        val enableAutoLogAppEvents: Boolean = call.argument(Constants.keyEnableAutoLogAppEvents) ?: true
 
         result.success(
             facebookSdk.initialize(
