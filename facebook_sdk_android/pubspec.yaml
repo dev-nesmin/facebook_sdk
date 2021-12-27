@@ -1,7 +1,7 @@
 name: facebook_sdk_android
 description: Android implementation of the facebook_sdk plugin.
 repository: https://github.com/nesminnn/facebook_sdk/tree/stable/facebook_sdk_android
-version: 1.0.0
+version: 1.0.1
 
 publish_to: 'none'
 
@@ -23,7 +23,7 @@ dependencies:
   facebook_sdk_platform_interface:
     git:
       url: git@github.com:dev-nesmin/facebook_sdk.git
-      ref: v1.0.0
+      ref: v1.0.1
       path: facebook_sdk_platform_interface
 
 dev_dependencies:
